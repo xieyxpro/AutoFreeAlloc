@@ -122,3 +122,5 @@ public:
         return pNode + 1;
     }
 }
+
+#endif
