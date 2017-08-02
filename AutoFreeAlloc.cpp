@@ -20,7 +20,7 @@ private:
         char buffer[BlockSize];     //2MB
     };
 
-    typedef void (*FnDestructor)(void)
+    typedef void (*FnDestructor)(void *pthis)
     struct _DestroyNode
     {
         _DestroyNode *pPrev;
@@ -47,6 +47,7 @@ public:
     {
         m_begin = m_end = (char*)HeaderSize;    //init chainHeader to null
     }
+    
     AutoFreeAllocT(_Alloc alloc): m_alloc(alloc), m_destroyChain(nullptr)
     {
         m_begin = m_end = (char*)HeaderSize;
